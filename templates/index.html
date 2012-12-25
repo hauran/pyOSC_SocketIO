@@ -1,0 +1,46 @@
+<html>
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	<script src="{{ url_for('static', filename='socket.io/socket.io.js') }}"></script>
+	<script>
+	var WEB_SOCKET_SWF_LOCATION = '/static/socket.io/WebSocketMain.swf',
+		socket = io.connect('/color');
+
+	socket.on('connect', function() {
+       	console.log('<b>Connected: ' + socket.socket.transport.name + '</b>');
+    });
+    socket.on('error', function() {
+       console.log('<b>Error</b>');
+    });
+    socket.on('gotem', function (data) {
+    	console.log(data);
+    });
+
+   
+	// socket.emit('join', function () {
+ //        console.log('!!!!!');
+ //    });
+
+
+  // 		socket.on("chat", function(e) {
+		// 	console.log("Chat message event", e);
+		// });
+	  
+	  // var socket = io.connect('http://localhost');
+	  // socket.on('connect', function (data) {
+	  //   console.log('connect', data);
+	  //   // socket.emit('my other event', { my: 'data' });
+	  // });
+
+	  // socket.on('update', function (data) {
+	  //   console.log('update', data);
+	  //   // socket.emit('my other event', { my: 'data' });
+	  // });
+	</script>
+</head>
+<body>
+		yoyoyo buddy
+		<input type="button" onclick="socket.emit('test', 'hey there');" value="GO"/>
+</body>
+</html>
+
